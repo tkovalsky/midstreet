@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="sba loans secondary markets small business loans">
+    <meta name="author" content="Todd Kovalsky for Midstreet Capital">
+
+    <title>
+
+        {% block title %}
+        {% endblock %}
+
+    </title>
+
+
+      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href="{% static 'css/toolkit-startup.css' %}" rel="stylesheet">
+      <link href="{% static 'css/application-startup.css' %}" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+      {% block css %}
+      {% endblock %}
+
+
+  </head>
+
+  <body>
+    {% include "navbar.html" %}
+
+    {% if messages %}
+
+    <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+
+
+
+{% block content %} {% endblock %}
+
+
+
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/toolkit.js' %}"></script>
+      <script src="{% static 'js/application.js' %}"></script>
+      <script>
+        // execute/clear BS loaders for docs
+        $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+      </script>
+{% block js %}{% endblock %}
+
+  </body>
+  </html>
