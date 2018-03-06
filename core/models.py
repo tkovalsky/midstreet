@@ -10,6 +10,9 @@ from django.utils import timezone
 class Deal(models.Model):
     name = models.CharField(blank=False, max_length=200)
     description = models.TextField(blank=False, max_length=200)
+    date_created = models.DateTimeField('Created Date', auto_now_add=True)
+    date_updated = models.DateTimeField('Updated Date', auto_now=True)
+
 
     def __str__(self):
         return self.name, self.description
