@@ -33,17 +33,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
-    'core',
-    'django.contrib.admin',
+    'django.contrib.sites',
+    'registration',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
     'rest_framework',
+    'api',
+    'core',
+
 ]
 
 MIDDLEWARE = [
@@ -128,15 +129,16 @@ STATIC_URL = '/static/'
 
 django_heroku.settings(locals())
 
-#EMAIL IS NOT SETUP YET
+#DJANGO REGISTRATION - EMAIL IS NOT SETUP YET
 ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'hi@example.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
-LOGIN_REDIRECT_URL = "home"
+REGISTRATION_AUTO_LOGIN = False
+#DEFAULT_FROM_EMAIL = 'hi@example.com'
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+#EMAIL_USE_TLS = False
+#EMAIL_PORT = 1025
+LOGIN_REDIRECT_URL = "deals"
 
 
 REST_FRAMEWORK = {
@@ -146,3 +148,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+SITE_ID = 1

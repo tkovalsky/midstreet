@@ -23,8 +23,8 @@ from core import views
 
 urlpatterns = [
 #    path('api/', include('api.urls')),
-    path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.default.urls')),
     #path('contact/', views.contact, name='contact'),
     path('core/', include('core.urls')),
     path('', views.home, name='home'),

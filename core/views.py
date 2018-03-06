@@ -61,4 +61,7 @@ def home(request):
     #    'form': form,   #here you are passing the variable "form" to the template so you can use it like "{{form.as_p}}"
     #    }
     #return render(request, 'home.html', context)
-    return render(request, 'home.html')
+    return render(request, 'marketing.html')
+
+def deals(request):
+    return render(request, 'deals.html')

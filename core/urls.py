@@ -9,5 +9,5 @@ from . import views
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
 
-    #path('', views.index, name='index'),
+    path('deals/', views.deals, name='deals'),
 ]
