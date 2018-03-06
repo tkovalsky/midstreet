@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'core',
-
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -149,4 +149,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+#sites framework setting
 SITE_ID = 1
+
+#crispy forms setting
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

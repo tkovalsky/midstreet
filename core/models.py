@@ -12,7 +12,7 @@ class Deal(models.Model):
     description = models.TextField(blank=False, max_length=200)
 
     def __str__(self):
-        return self.name
+        return self.name, self.description
 
 
 '''
