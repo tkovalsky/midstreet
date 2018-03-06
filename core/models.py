@@ -7,12 +7,34 @@ from django.utils import timezone
 
 # Create your models here.
 
+
+
 class Deal(models.Model):
     name = models.CharField(blank=False, max_length=200)
     description = models.TextField(blank=False, max_length=200)
+
+    SBA = 'SBA'
+    SENIOR = 'SNR'
+    JUNIOR = 'JNR'
+    LOAN_TYPE_CHOICES = (
+        (SBA, 'SBA 7a'),
+        (SENIOR, 'Senior Secured'),
+        (JUNIOR, 'Junior'),
+        )
+    loan_type = models.CharField(max_length=3,choices=LOAN_TYPE_CHOICES,)
+
+    TRANSPORTATION = 'TRK'
+    TECHNOLOGY = 'TEC'
+    PHARMACEUTICAL = 'PHR'
+    INDUSTRY_TYPE_CHOICES = (
+        (TRANSPORTATION, 'Transport'),
+        (TECHNOLOGY, 'Tech'),
+        (PHARMACEUTICAL, 'Pharma'),
+        )
+    industry_type = models.CharField(max_length=3,choices=INDUSTRY_TYPE_CHOICES,)
+
     date_created = models.DateTimeField('Created Date', auto_now_add=True)
     date_updated = models.DateTimeField('Updated Date', auto_now=True)
-
 
     def __str__(self):
         return self.name, self.description
